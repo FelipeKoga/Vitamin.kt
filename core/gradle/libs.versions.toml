@@ -1,13 +1,15 @@
 [versions]
 agp = "8.7.3"
-kotlin = "2.0.0"
+kotlin = "2.1.0"
 kotlin-coroutines = "1.10.1"
 kotlinx-serialization = "1.7.3"
-koin = "4.0.0"
+koin = "4.0.2"
 ktor-client = "3.0.2"
+androidx-lifecycle = "2.8.4"
 
 [libraries]
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-core-viewmodel = { module = "io.insert-koin:koin-core-viewmodel", version.ref = "koin" }
 kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "kotlin-coroutines" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
@@ -16,6 +18,7 @@ ktor-content-negotiation = { group = "io.ktor", name = "ktor-client-content-nego
 ktor-json = { group = "io.ktor", name = "ktor-client-json", version.ref = "ktor-client" }
 ktor-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor-client" }
 ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor-client" }
+androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
 
 [plugins]
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

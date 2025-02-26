@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "vitamin-kt"
+rootProject.name = "core"
 include(":shared")
