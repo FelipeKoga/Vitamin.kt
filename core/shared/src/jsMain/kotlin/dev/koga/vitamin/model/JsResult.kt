@@ -2,28 +2,24 @@
 
 package dev.koga.vitamin.model
 
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
-
 @JsExport
 class JsResult<T>(
-    val isLoading: Boolean = false,
-    val isError: Boolean = false,
+    val loading: Boolean = false,
+    val error: JsError? = null,
     val data: T? = null
 )
 
-fun <T> Flow<Result<T>>.asJsResult(): Flow<JsResult<T>> = map {
-    when (it) {
-        is Result.Error -> JsResult(isError = true)
-        Result.Loading -> JsResult(isLoading = true)
-        is Result.Success -> JsResult(data = it.data)
-    }
+@JsExport
+class JsError(
+    val message: String
+)
+
+fun <T> Result<T>.asJsResult(): JsResult<T> = when (this) {
+    is Result.Error -> JsResult(error = JsError(this.exception.message.orEmpty()))
+    is Result.Success -> JsResult(data = this.data)
 }
 
-fun <T> Flow<Result<List<T>>>.asJsResult(): Flow<JsResult<Array<T>>> = map {
-    when (it) {
-        is Result.Error -> JsResult(isError = true)
-        Result.Loading -> JsResult(isLoading = true)
-        is Result.Success -> JsResult(data = it.data.toTypedArray())
-    }
+fun <T> Result<List<T>>.asJsResult(): JsResult<Array<T>> = when (this) {
+    is Result.Error -> JsResult(error = JsError(this.exception.message.orEmpty()))
+    is Result.Success -> JsResult(data = this.data.toTypedArray())
 }

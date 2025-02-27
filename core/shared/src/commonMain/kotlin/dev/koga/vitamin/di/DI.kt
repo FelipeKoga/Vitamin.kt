@@ -1,7 +1,7 @@
 package dev.koga.vitamin.di
 
 import dev.koga.vitamin.network.FruitApi
-import dev.koga.vitamin.viewmodel.FruitViewModel
+import dev.koga.vitamin.repository.FruitRepository
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import kotlinx.serialization.json.Json
@@ -9,7 +9,6 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 import io.ktor.serialization.kotlinx.json.json
 import org.koin.core.module.dsl.singleOf
-import org.koin.core.module.dsl.viewModelOf
 
 val appModule = module {
     single {
@@ -23,7 +22,7 @@ val appModule = module {
     }
 
     singleOf(::FruitApi)
-    viewModelOf(::FruitViewModel)
+    singleOf(::FruitRepository)
     includes(platformModule)
 
 }

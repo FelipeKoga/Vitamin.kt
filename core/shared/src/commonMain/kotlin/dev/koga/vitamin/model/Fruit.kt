@@ -2,32 +2,45 @@
 
 package dev.koga.vitamin.model
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 @JsExport
 data class Fruit(
+    @SerialName("name")
     val name: String,
+    @SerialName("image")
     val image: Image,
-    val metadata: Metadata
-) {
-    @Serializable
-    data class Image(
-        val author: Author,
-        val color: String,
-        val url: String
-    ) {
-        @Serializable
-        data class Author(
-            val name: String,
-            val url: String,
-        )
-    }
+    @SerialName("metadata")
+    val metadata: List<Metadata>
+)
 
-    @Serializable
-    data class Metadata(
-        val name: String,
-        val value: String
-    )
+@Serializable
+@JsExport
+data class Image(
+    @SerialName("author")
+    val author: Author,
+    @SerialName("color")
+    val color: String,
+    @SerialName("url")
+    val url: String
+)
 
-}
+@Serializable
+@JsExport
+data class Author(
+    @SerialName("name")
+    val name: String,
+    @SerialName("url")
+    val url: String
+)
+
+@Serializable
+@JsExport
+data class Metadata(
+    @SerialName("name")
+    val name: String,
+    @SerialName("value")
+    val value: String
+)
