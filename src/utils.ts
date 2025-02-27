@@ -1,4 +1,5 @@
-import { useLayoutEffect, useState } from 'react'
+import type { FlowObserver } from 'core-shared'
+import { useEffect, useLayoutEffect, useState } from 'react'
 
 // eslint-disable-next-line import/prefer-default-export
 export function useMediaQuery(query: string): boolean {
@@ -19,4 +20,13 @@ export function useMediaQuery(query: string): boolean {
 	}, [query])
 
 	return matches
+}
+
+export function useFlowState<T>(property: FlowObserver<T>): T | undefined {
+	const [state, setState] = useState<T>()
+	useEffect(() => {
+		property.startObserving((value: T) => setState(value))
+		return () => property.stopObserving()
+	}, [property])
+	return state
 }

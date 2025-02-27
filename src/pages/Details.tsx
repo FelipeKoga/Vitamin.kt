@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import getFruits from 'api/getFruits'
 import Head from 'components/Head'
 import ImageAttribution from 'components/ImageAttribution'
 import LoadingOrError from 'components/LoadingOrError'
+import { getFruitRepository } from 'core-shared'
 import type { ReactElement } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { useMediaQuery } from 'utils'
@@ -13,18 +13,19 @@ const MOBILE_IMAGE_HEIGHT_PERCENTAGE = 0.3
 export default function DetailsPage(): ReactElement {
 	const isTabletAndUp = useMediaQuery('(min-width: 600px)')
 	const { fruitName } = useParams()
+	const repository = getFruitRepository()
 
 	const { isPending, isError, error, data } = useQuery({
-		queryKey: ['fruits'],
-		queryFn: getFruits
+		queryKey: [`fruits-${fruitName}`],
+		queryFn: async () => repository.getByName(fruitName ?? '')
 	})
+
 	if (isPending || isError) {
 		return <LoadingOrError error={error as Error} />
 	}
 
-	const fruit = data.find(
-		f => f.name.toLowerCase() === fruitName?.toLowerCase()
-	)
+	const fruit = data
+
 	if (!fruit) {
 		return <Navigate to='/' replace />
 	}
@@ -79,7 +80,7 @@ export default function DetailsPage(): ReactElement {
 							</tr>
 						</thead>
 						<tbody>
-							{fruit.metadata.map(({ name, value }) => (
+							{fruit.metadata.asJsReadonlyArrayView().map(({ name, value }) => (
 								<tr key={`FruitVitamin-${name}`} className='font-medium'>
 									<td className='border border-gray-300 px-4 py-2'>{name}</td>
 									<td className='border border-gray-300 px-4 py-2'>{value}</td>

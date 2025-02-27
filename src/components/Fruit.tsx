@@ -1,6 +1,6 @@
+import type { Fruit } from 'core-shared'
 import type { KeyboardEvent, ReactElement } from 'react'
 import { useNavigate } from 'react-router-dom'
-import type { IFruit } from 'types'
 import { useMediaQuery } from 'utils'
 import ImageAttribution from './ImageAttribution'
 
@@ -11,11 +11,11 @@ const ASPECT_RATIO_HEIGHT = 9
 const IMAGE_INDEX_BELOW_THE_FOLD = 3
 
 interface Properties {
-	fruit: IFruit
+	fruit: Fruit
 	index: number
 }
 
-export default function Fruit({ fruit, index }: Properties): ReactElement {
+export default function FruitCard({ fruit, index }: Properties): ReactElement {
 	const isTabletAndUp = useMediaQuery('(min-width: 600px)')
 
 	const navigate = useNavigate()
