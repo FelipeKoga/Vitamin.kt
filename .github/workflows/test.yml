@@ -33,12 +33,12 @@ jobs:
           distribution: 'zulu'
           cache: gradle
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
-
-      - name: Build Kotlin Multiplatform module
+      - name: Build and link Kotlin Multiplatform module
         run: |
+          cd ./core
+          chmod +x ./gradlew
           ./gradlew jsBrowserProductionLibraryDistribution
+          cd ..
           pnpm link ./core/shared/build/dist/js/productionLibrary
 
       - name: Install dependencies
