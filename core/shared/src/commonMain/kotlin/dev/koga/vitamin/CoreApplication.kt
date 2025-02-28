@@ -4,7 +4,7 @@ import dev.koga.vitamin.di.appModule
 import org.koin.core.Koin
 import org.koin.core.context.startKoin
 
-object Application {
+object CoreApplication {
     lateinit var koin: Koin
 
     fun init() {

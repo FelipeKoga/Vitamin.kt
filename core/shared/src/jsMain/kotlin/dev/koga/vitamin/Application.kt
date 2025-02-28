@@ -3,6 +3,6 @@
 package dev.koga.vitamin
 
 @JsExport
-fun initApp() {
-    Application.init()
+fun initCoreModule() {
+    CoreApplication.init()
 }

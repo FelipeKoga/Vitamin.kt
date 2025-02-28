@@ -2,7 +2,7 @@
 
 package dev.koga.vitamin.di
 
-import dev.koga.vitamin.Application
+import dev.koga.vitamin.CoreApplication
 import dev.koga.vitamin.repository.FruitRepositoryJs
 import io.ktor.client.engine.js.Js
 import org.koin.core.module.Module
@@ -16,5 +16,5 @@ actual val platformModule: Module = module {
 
 @JsExport
 fun getFruitRepository(): FruitRepositoryJs {
-    return Application.koin.get()
+    return CoreApplication.koin.get()
 }
