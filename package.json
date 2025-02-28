@@ -4,8 +4,8 @@
 	"private": true,
 	"version": "0.0.0",
 	"scripts": {
-		"build": "vite build",
 		"build:core": "cd ./core && ./gradlew jsBrowserProductionLibraryDistribution && cd .. && pnpm link ./core/shared/build/dist/js/productionLibrary",
+		"build": "pnpm build:core && vite build",
 		"commit": "cz",
 		"dev": "vite --open",
 		"prepare": "husky install",
