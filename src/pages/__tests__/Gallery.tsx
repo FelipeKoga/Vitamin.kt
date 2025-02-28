@@ -1,9 +1,12 @@
 import { screen } from '@testing-library/react'
+import { initCoreModule } from 'core-shared'
 import GalleryPage from 'pages/Gallery'
 import renderWithProviders, {
 	MOBILE_RESOLUTION_HEIGHT,
 	MOBILE_RESOLUTION_WIDTH
 } from 'testUtils'
+
+initCoreModule()
 
 describe('<Gallery />', () => {
 	it('renders', async () => {

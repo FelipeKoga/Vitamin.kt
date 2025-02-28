@@ -1,8 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import fruits from 'mocks/data/fruits.json'
+import {
+	Author,
+	Fruit,
+	Image,
+	initCoreModule,
+	listOf,
+	Metadata
+} from 'core-shared'
 import type ReactRouterDOM from 'react-router-dom'
-import Fruit from '../Fruit'
+import FruitCard from '../Fruit'
+
+initCoreModule()
 
 const mockNavigate = vi.fn()
 vi.mock('react-router-dom', async () => ({
@@ -10,8 +19,18 @@ vi.mock('react-router-dom', async () => ({
 	useNavigate: (): typeof mockNavigate => mockNavigate
 }))
 
+const fruit = new Fruit(
+	'Apple',
+	new Image(
+		new Author('Matheus Cenali', 'https://unsplash.com/@cenali'),
+		'#bb3335',
+		'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?fit=crop&q=60&auto=format'
+	),
+	listOf([new Metadata('Vitamin A', '3 μg')])
+)
+
 function renderFruit(): void {
-	render(<Fruit fruit={fruits[0]} index={0} />)
+	render(<FruitCard fruit={fruit} index={0} />)
 }
 
 describe('<Fruit />', () => {

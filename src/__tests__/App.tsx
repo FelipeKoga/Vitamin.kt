@@ -1,7 +1,10 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from 'App'
+import { initCoreModule } from 'core-shared'
 import renderWithProviders from 'testUtils'
+
+initCoreModule()
 
 describe('<App />', () => {
 	it('renders', async () => {

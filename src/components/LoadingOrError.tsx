@@ -1,8 +1,8 @@
-import type { JsError } from 'core-shared'
+import type { Error } from 'core-shared'
 import type { ReactElement } from 'react'
 
 interface Properties {
-	error?: JsError
+	error?: Error
 }
 export default function LoadingOrError({ error }: Properties): ReactElement {
 	return (

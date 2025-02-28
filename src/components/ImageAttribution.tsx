@@ -1,8 +1,8 @@
+import type { Author } from 'core-shared'
 import type { MouseEvent, ReactElement } from 'react'
-import type { IFruit } from 'types'
 
 interface Properties {
-	author: IFruit['image']['author']
+	author: Author
 }
 
 function onClick(event: MouseEvent): void {

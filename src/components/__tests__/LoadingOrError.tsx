@@ -1,5 +1,8 @@
 import { render, screen } from '@testing-library/react'
+import { initCoreModule } from 'core-shared'
 import LoadingOrError from '../LoadingOrError'
+
+initCoreModule()
 
 describe('<LoadingOrError />', () => {
 	it('renders', () => {

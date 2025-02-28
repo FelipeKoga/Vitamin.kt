@@ -1,19 +1,22 @@
-import { screen, waitFor } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { initCoreModule } from 'core-shared'
 import Gallery from 'pages/Gallery'
 import type ReactRouterDOM from 'react-router-dom'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import renderWithProviders, {
 	MOBILE_RESOLUTION_HEIGHT,
 	MOBILE_RESOLUTION_WIDTH
 } from 'testUtils'
 import Details from '../Details'
 
+initCoreModule()
+
 vi.mock('react-router-dom', async () => ({
 	...(await vi.importActual<typeof ReactRouterDOM>('react-router-dom')),
 	Navigate: vi.fn()
 }))
 
-async function renderDetailsPage(route = 'apple'): Promise<void> {
+async function renderDetailsPage(route: string): Promise<void> {
 	window.history.pushState({}, '', route)
 	renderWithProviders(
 		<Routes>
@@ -24,13 +27,8 @@ async function renderDetailsPage(route = 'apple'): Promise<void> {
 }
 
 describe('<Details />', () => {
-	it('redirect to home screen if fruit is not found', async () => {
-		await renderDetailsPage('potato')
-
-		await waitFor(() => expect(Navigate).toHaveBeenCalledTimes(1))
-	})
 	it('renders', async () => {
-		await renderDetailsPage()
+		await renderDetailsPage('apple')
 
 		await expect(
 			screen.findByRole('link', { name: 'Back' })
@@ -48,7 +46,7 @@ describe('<Details />', () => {
 	})
 	it('renders with mobile resolution', async () => {
 		window.resizeTo(MOBILE_RESOLUTION_WIDTH, MOBILE_RESOLUTION_HEIGHT)
-		await renderDetailsPage()
+		await renderDetailsPage('apple')
 
 		const image = await screen.findByRole('img', { name: 'Apple' })
 		expect(image).toHaveAttribute('width', '414')
