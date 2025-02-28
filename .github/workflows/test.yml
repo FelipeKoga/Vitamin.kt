@@ -34,12 +34,7 @@ jobs:
           cache: gradle
 
       - name: Build and link Kotlin Multiplatform module
-        run: |
-          cd ./core
-          chmod +x ./gradlew
-          ./gradlew jsBrowserProductionLibraryDistribution
-          cd ..
-          pnpm link ./core/shared/build/dist/js/productionLibrary
+        run: pnpm build:core
 
       - name: Install dependencies
         run: pnpm --no-frozen-lockfile i && pnpm cypress install
