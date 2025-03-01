@@ -14,7 +14,7 @@ Thanks to [@wtchnm](https://github.com/wtchnm) for creating an amazing Vite star
 
 ### Tech Stack
 
-- **Vite** with **React**, **TypeScript**, **React Query**, and a lot of cool features that are described in the main repository.
+- **Vite** with **React**, **TypeScript**, **React Query**, and a lot of cool features that are described in the template repository.
 - **Kotlin Multiplatform** with **Kotlin Coroutines**, **Koin**, and **Ktor**.
 
 ### Roadmap
