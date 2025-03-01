@@ -6,7 +6,7 @@
 
 #### Motivation
 
-This project is an experiment with Kotlin/JS in React apps, similar to how Kotlin can be integrated with Swift and SwiftUI for iOS development. While Kotlin/JS has some limitations, it works quite well in this setup using Vite and React Query.
+This project is an experiment with Kotlin/JS in React apps, similar to how Kotlin can be integrated with Swift and SwiftUI for iOS development.
 
 The Kotlin/JS code is located in the core folder, and it’s currently configured for the JS target. However, it’s easy to extend it to other platforms like Android, iOS, or JVM.
 
