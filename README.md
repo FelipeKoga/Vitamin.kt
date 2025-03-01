@@ -12,6 +12,19 @@ The Kotlin/JS code is located in the core folder, and it’s currently configure
 
 Thanks to [@wtchnm](https://github.com/wtchnm) for creating an amazing Vite starter template. I was able to easily integrate Kotlin/JS and run tests to ensure everything is working smoothly. You can check it out [here](https://github.com/wtchnm/Vitamin).
 
+### Tech Stack
+
+- **Vite** with **React**, **TypeScript**, **React Query**, and a lot of cool features that are described in the main repository.
+- **Kotlin Multiplatform** with **Kotlin Coroutines**, **Koin**, and **Ktor**.
+
+### Roadmap
+
+- [ ] Add more functionalities and cover the Kotlin Multiplatform module with tests.
+- [ ] Add more KMP targets, like **Android**, **iOS**, and **JVM**.
+- [ ] Explore how to integrate **Compose Multiplatform** into a React/JS app.
+- [ ] Share a **Multiplatform ViewModel** between multiple apps – React, SwiftUI, and Compose.
+- [ ] Try out **Decompose**.
+
 
 #### Getting started
 
