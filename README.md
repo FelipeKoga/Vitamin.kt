@@ -21,6 +21,7 @@ Thanks to [@wtchnm](https://github.com/wtchnm) for creating an amazing Vite star
 
 - [ ] Add more functionalities and cover the Kotlin Multiplatform module with tests.
 - [ ] Add more KMP targets, like **Android**, **iOS**, and **JVM**.
+- [ ] Integrate with Kotlin Flow
 - [ ] Explore how to integrate **Compose Multiplatform** into a React/JS app.
 - [ ] Share a **Multiplatform ViewModel** between multiple apps – React, SwiftUI, and Compose.
 - [ ] Add multiple modules to the KMP project
