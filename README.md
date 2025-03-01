@@ -26,7 +26,7 @@ Thanks to [@wtchnm](https://github.com/wtchnm) for creating an amazing Vite star
 - [ ] Try out **Decompose**.
 
 
-#### Getting started
+### Getting started
 
 Install the dependencies:
 
@@ -40,7 +40,7 @@ Then, run:
 pnpm run dev
 ```
 
-#### Scripts
+### Scripts
 
 - `pnpm dev` - start a development server with hot reload.
 - `pnpm build` - build for production. The generated files will be on the `dist` folder.
