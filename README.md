@@ -10,7 +10,7 @@ This project is an experiment with Kotlin/JS in React apps, similar to how Kotli
 
 The Kotlin/JS code is located in the core folder, and it’s currently configured for the JS target. However, it’s easy to extend it to other platforms like Android, iOS, or JVM.
 
-A big thank you to [@wtchnm](https://github.com/wtchnm) for creating an amazing Vite starter template. I was able to easily integrate Kotlin/JS and run tests to ensure everything is working smoothly. You can check it out [here](https://github.com/wtchnm/Vitamin).
+Thanks to [@wtchnm](https://github.com/wtchnm) for creating an amazing Vite starter template. I was able to easily integrate Kotlin/JS and run tests to ensure everything is working smoothly. You can check it out [here](https://github.com/wtchnm/Vitamin).
 
 #### Getting started
 
